@@ -98,7 +98,7 @@
   2. Spresense Cubeの電源スイッチをOFF→ON
 2. Updaterで以下コマンドを入力します。
 
-updater\&gt; install
+updater\> install
 
 1. ターミナルソフトでXMODEM送信を選択し、Spresense Cube に書き込む Firmwareファイル（拡張子：.spk）を選択します。
 ※ターミナルソフトにTera Termを使用している場合、「ファイル」→「転送」→「XMODEM」→「送信」を選択し、「Tera Term : XMODEM 送信」ダイアログが表示されたら、対象のFirmwareファイル（拡張子：.spk）を選択します。
@@ -112,7 +112,7 @@ MultipleSensorLogger を動作させるためには、設定ファイルとロ�
 - 設定ファイル
 /mnt/emmc/SensorConfig.json （※変更するためには、MultipleSensorLogger のソースコードを修正する必要があります）
 - ログファイル格納先ディレクトリ
-設定ファイル内に &quot;LogFilePath&quot; パラメータとして設定します。
+設定ファイル内に "LogFilePath" パラメータとして設定します。
 ここで指定した格納先ディレクトリは、MultipleSensorLogger を使用する前にあらかじめ作成しておく必要があります。
 
 ### 3-1-1. 設定ファイル記述
@@ -136,7 +136,7 @@ MultipleSensorLogger を動作させるためには、設定ファイルとロ�
 | Name | パラメータを反映するセンサの種類（例：加速度センサーであれば accel0 とします） |
 | Frequency | センサーの測定値を記録する間隔（サンプリング周波数） |
 | Watermark | センサーから 1 度に取得する測定値の数 |
-| LogFileName | ログを書き込むファイル名の prefix※実際のファイル名は、ここで設定した文字列に、システム時刻を付加したものとなります。　　例：LogFileNameに&quot;Temporary&quot;と設定され、システム時刻が2019/08/01 12:00:00の場合、　　　　ファイル名は以下となります。　　　　　　Temporary-20190801\_120000.csv |
+| LogFileName | ログを書き込むファイル名の prefix※実際のファイル名は、ここで設定した文字列に、システム時刻を付加したものとなります。　　例：LogFileNameに"Temporary"と設定され、システム時刻が2019/08/01 12:00:00の場合、　　　　ファイル名は以下となります。　　　　　　Temporary-20190801\_120000.csv |
 | OperationMode | （GNSS専用）GNSSのオペレーションモードを指定します。 |
 | Cycle　 | （GNSS専用）GNSSのセンサー値取得周期を指定します。 |
 | SatelliteSystems | （GNSS専用）GNSSの使用する衛星システムを指定します。 |
@@ -162,16 +162,16 @@ MultipleSensorLogger を動作させるためには、設定ファイルとロ�
 | 気圧センサー | press0 | 1~128 | 1~1024 | 半角44文字まで ※1 |
 | 気温センサー | temp0 | 1~128 ※2 | 1-1024 ※2 | 半角44文字まで ※1 |
 
-- ※1　\ / : \* ? &quot; \&lt; \&gt; |などの特殊文字等は使用しないでください。
+- ※1　\ / : \* ? " \&lt; \> |などの特殊文字等は使用しないでください。
 - ※2　気圧センサーと気温センサーを併用する場合、気圧センサーのWatermark/Frequencyの値が気温センサーのWatermark/Frequencyより著しく小さい場合、気圧センサーの計測値が計測開始よりしばらく不正確な値となることがあります。
 
 **GNSSのパラメータ設定範囲**
 
 | **センサー** | **Name** | **LogFileName** | **OperationMode** | **Cycle** | ** SatelliteSystems** |
 | --- | --- | --- | --- | --- | --- |
-| GNSS 　 |  gnss | 半角44文字まで ※1 | &quot;Normal&quot; or &quot;NoChange&quot;  | 1 ~ 4294967  | 以下の衛星システムを配列で記述します。 ※2 &quot;GPS&quot; &quot;GLONASS&quot; &quot;SBAS&quot; &quot;QZSS\_L1CA&quot; &quot;IMES&quot; &quot;QZSS\_L1SAIF&quot; &quot;BeiDou&quot; &quot;Galileo&quot;   |
+| GNSS 　 |  gnss | 半角44文字まで ※1 | "Normal" or "NoChange"  | 1 ~ 4294967  | 以下の衛星システムを配列で記述します。 ※2 "GPS" "GLONASS" "SBAS" "QZSS\_L1CA" "IMES" "QZSS\_L1SAIF" "BeiDou" "Galileo"   |
 
-- ※1　\ / : \* ? &quot; \&lt; \&gt; |などの特殊文字等は使用しないでください。
+- ※1　\ / : \* ? " \&lt; \> |などの特殊文字等は使用しないでください。
 - ※2　大文字小文字は区別されません。
 
 **micのパラメータ設定範囲**
@@ -179,10 +179,10 @@ MultipleSensorLogger を動作させるためには、設定ファイルとロ�
 | ** センサー** | **Name** | **LogFileName** | **Codec** | **SamplingRate** | **Channel ** | **Format** | **Bitwidth** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | SCU mic | scumic |  半角44文字まで ※1 | ※2 | 16000 | ※2 | ※2 | ※2 |
-| AcaPulco mic | acapulcomic |  半角44文字まで ※1 | &quot;lpcm&quot;  | 16000 or48000 or192000  | 1(MONO)2(STEREO) | &quot;wav&quot; | 16 or 24※3 |
+| AcaPulco mic | acapulcomic |  半角44文字まで ※1 | "lpcm"  | 16000 or48000 or192000  | 1(MONO)2(STEREO) | "wav" | 16 or 24※3 |
 
-- ※1　\ / : \* ? &quot; \&lt; \&gt; |などの特殊文字等は使用しないでください。
-- ※2　SCU micはCodec=&quot;lpcm&quot;, Channel=1, Format=&quot;wav&quot;, Bitwidth=16固定で動作するため、Codec, Channel, Format, Bitwidthは記述しないでください。
+- ※1　\ / : \* ? " \&lt; \> |などの特殊文字等は使用しないでください。
+- ※2　SCU micはCodec="lpcm", Channel=1, Format="wav", Bitwidth=16固定で動作するため、Codec, Channel, Format, Bitwidthは記述しないでください。
 　　  Codec, Channel, Format, Bitwidthパラメータを指定していても記述されたパラメータは無視されます。
 - ※3　Bitwidth=24と指定する場合、SamplingRate=16000の使用はできません。
 
@@ -195,7 +195,7 @@ MultipleSensorLogger を動作させるためには、設定ファイルとロ�
 | AutoStart | true or false |
 | LogFilePath | 半角256文字まで ※1 |
 
-- ※1　\ / : \* ? &quot; \&lt; \&gt; |などの特殊文字等は使用しないでください。
+- ※1　\ / : \* ? " \&lt; \> |などの特殊文字等は使用しないでください。
 
 ### 3-1-3. 設定ファイルの記述例
 
@@ -212,23 +212,23 @@ MultipleSensorLogger を動作させるためには、設定ファイルとロ�
 
 {
 
-     &quot;Sensor&quot;:   [{
+     "Sensor":   [{
 
-             &quot;Name&quot;: &quot;accel0&quot;,
+             "Name": "accel0",
 
-             &quot;Frequency&quot;:    128,
+             "Frequency":    128,
 
-             &quot;Watermark&quot;:    128,
+             "Watermark":    128,
 
-             &quot;LogFileName&quot;:  &quot;Accel&quot;
+             "LogFileName":  "Accel"
 
          }],
 
-     &quot;LogRotationIntervalMin&quot;:  30,
+     "LogRotationIntervalMin":  30,
 
-     &quot;AutoStart&quot;: true,
+     "AutoStart": true,
 
-     &quot;LogFilePath&quot;:  &quot;/mnt/emmc/log&quot;
+     "LogFilePath":  "/mnt/emmc/log"
 
 }
 
@@ -263,75 +263,75 @@ MultipleSensorLogger を動作させるためには、設定ファイルとロ�
 
 {
 
-     &quot;Sensor&quot;:   [{
+     "Sensor":   [{
 
-             &quot;Name&quot;: &quot;accel0&quot;,
+             "Name": "accel0",
 
-             &quot;Frequency&quot;:    128,
+             "Frequency":    128,
 
-             &quot;Watermark&quot;:    128,
+             "Watermark":    128,
 
-             &quot;LogFileName&quot;:  &quot;Accel&quot;
-
-         }, {
-
-             &quot;Name&quot;: &quot;gyro0&quot;,
-
-             &quot;Frequency&quot;:    128,
-
-             &quot;Watermark&quot;:    128,
-
-             &quot;LogFileName&quot;:  &quot;Gyro&quot;
+             "LogFileName":  "Accel"
 
          }, {
 
-             &quot;Name&quot;: &quot;press0&quot;,
+             "Name": "gyro0",
 
-             &quot;Frequency&quot;:    128,
+             "Frequency":    128,
 
-             &quot;Watermark&quot;:    128,
+             "Watermark":    128,
 
-             &quot;LogFileName&quot;:  &quot;Press&quot;
-
-         }, {
-
-             &quot;Name&quot;: &quot;temp0&quot;,
-
-             &quot;Frequency&quot;:    128,
-
-             &quot;Watermark&quot;:    128,
-
-             &quot;LogFileName&quot;:  &quot;Temp&quot;
+             "LogFileName":  "Gyro"
 
          }, {
 
-             &quot;Name&quot;: &quot;gnss&quot;,
+             "Name": "press0",
 
-             &quot;LogFileName&quot;:  &quot;Gnss&quot;,
+             "Frequency":    128,
 
-             &quot;OperationMode&quot;:    &quot;Normal&quot;,
+             "Watermark":    128,
 
-             &quot;Cycle&quot;:    1,
+             "LogFileName":  "Press"
 
-             &quot;SatelliteSystems&quot;: [
+         }, {
 
-                                       &quot;GPS&quot;,
+             "Name": "temp0",
 
-                                       &quot;GLONASS&quot;,
+             "Frequency":    128,
 
-                                       &quot;IMES&quot;
+             "Watermark":    128,
+
+             "LogFileName":  "Temp"
+
+         }, {
+
+             "Name": "gnss",
+
+             "LogFileName":  "Gnss",
+
+             "OperationMode":    "Normal",
+
+             "Cycle":    1,
+
+             "SatelliteSystems": [
+
+                                       "GPS",
+
+                                       "GLONASS",
+
+                                       "IMES"
 
                                  ]
 
          }],
 
-    &quot;LogRotationIntervalMin&quot;:  120,
+    "LogRotationIntervalMin":  120,
 
-    &quot;TImezoneOffset&quot;: 9,
+    "TImezoneOffset": 9,
 
-    &quot;AutoStart&quot;: true,
+    "AutoStart": true,
 
-    &quot;LogFilePath&quot;:  &quot;/mnt/emmc/log&quot;
+    "LogFilePath":  "/mnt/emmc/log"
 
 }
 
@@ -360,53 +360,53 @@ MultipleSensorLogger を動作させるためには、設定ファイルとロ�
 
 {
 
-     &quot;Sensor&quot;:   [{
+     "Sensor":   [{
 
-             &quot;Name&quot;: &quot;accel0&quot;,
+             "Name": "accel0",
 
-             &quot;Frequency&quot;:    128,
+             "Frequency":    128,
 
-             &quot;Watermark&quot;:    128,
+             "Watermark":    128,
 
-             &quot;LogFileName&quot;:  &quot;Accel&quot;
-
-         }, {
-
-             &quot;Name&quot;: &quot;mag0&quot;,
-
-             &quot;Frequency&quot;:    64,
-
-             &quot;Watermark&quot;:    64,
-
-             &quot;LogFileName&quot;:  &quot;Mag&quot;
+             "LogFileName":  "Accel"
 
          }, {
 
-             &quot;Name&quot;: &quot;press0&quot;,
+             "Name": "mag0",
 
-             &quot;Frequency&quot;:    128,
+             "Frequency":    64,
 
-             &quot;Watermark&quot;:    128,
+             "Watermark":    64,
 
-             &quot;LogFileName&quot;:  &quot;Press&quot;
+             "LogFileName":  "Mag"
 
          }, {
 
-             &quot;Name&quot;: &quot;scumic&quot;,
+             "Name": "press0",
 
-             &quot;LogFileName&quot;:  &quot;Mic&quot;,
+             "Frequency":    128,
 
-             &quot;SamplingRate&quot;:    16000
+             "Watermark":    128,
+
+             "LogFileName":  "Press"
+
+         }, {
+
+             "Name": "scumic",
+
+             "LogFileName":  "Mic",
+
+             "SamplingRate":    16000
 
          }],
 
-    &quot;LogRotationIntervalMin&quot;:  60,
+    "LogRotationIntervalMin":  60,
 
-    &quot;TImezoneOffset&quot;: 9,
+    "TImezoneOffset": 9,
 
-    &quot;AutoStart&quot;: false,
+    "AutoStart": false,
 
-    &quot;LogFilePath&quot;:  &quot;/mnt/emmc/log&quot;
+    "LogFilePath":  "/mnt/emmc/log"
 
 }
 
@@ -439,61 +439,61 @@ MultipleSensorLogger を動作させるためには、設定ファイルとロ�
 
 {
 
-     &quot;Sensor&quot;:   [{
+     "Sensor":   [{
 
-             &quot;Name&quot;: &quot;accel0&quot;,
+             "Name": "accel0",
 
-             &quot;Frequency&quot;:    128,
+             "Frequency":    128,
 
-             &quot;Watermark&quot;:    128,
+             "Watermark":    128,
 
-             &quot;LogFileName&quot;:  &quot;Accel&quot;
-
-         }, {
-
-             &quot;Name&quot;: &quot;gyro0&quot;,
-
-             &quot;Frequency&quot;:    128,
-
-             &quot;Watermark&quot;:    128,
-
-             &quot;LogFileName&quot;:  &quot;Gyro&quot;
+             "LogFileName":  "Accel"
 
          }, {
 
-             &quot;Name&quot;: &quot;press0&quot;,
+             "Name": "gyro0",
 
-             &quot;Frequency&quot;:    128,
+             "Frequency":    128,
 
-             &quot;Watermark&quot;:    128,
+             "Watermark":    128,
 
-             &quot;LogFileName&quot;:  &quot;Press&quot;
+             "LogFileName":  "Gyro"
 
          }, {
 
-             &quot;Name&quot;: &quot;acapulcomic&quot;,
+             "Name": "press0",
 
-             &quot;LogFileName&quot;:  &quot;Mic&quot;,
+             "Frequency":    128,
 
-             &quot;Codec&quot;:  &quot;lpcm&quot;,
+             "Watermark":    128,
 
-             &quot;SamplingRate&quot;:    48000
+             "LogFileName":  "Press"
 
-             &quot;Channel&quot;:    2
+         }, {
 
-             &quot;Format&quot;:    &quot;wav&quot;
+             "Name": "acapulcomic",
 
-             &quot;Bitwidth&quot;:    16
+             "LogFileName":  "Mic",
+
+             "Codec":  "lpcm",
+
+             "SamplingRate":    48000
+
+             "Channel":    2
+
+             "Format":    "wav"
+
+             "Bitwidth":    16
 
          }],
 
-    &quot;LogRotationIntervalMin&quot;:  60,
+    "LogRotationIntervalMin":  60,
 
-    &quot;TImezoneOffset&quot;: 9,
+    "TImezoneOffset": 9,
 
-    &quot;AutoStart&quot;: false,
+    "AutoStart": false,
 
-    &quot;LogFilePath&quot;:  &quot;/mnt/sd0/log&quot;
+    "LogFilePath":  "/mnt/sd0/log"
 
 }
 
@@ -504,7 +504,7 @@ MultipleSensorLogger を動作させるためには、設定ファイルとロ�
 - 文法エラー
 
  　　　設定ファイルのJSON形式に問題がある場合、以下のエラーコードが表示されます。
- 　　　     　「&quot;Error : Parse JSON file(SensorConfig.json) failed.」
+ 　　　     　「"Error : Parse JSON file(SensorConfig.json) failed.」
 
 - パラメータエラー
 
@@ -512,10 +512,10 @@ MultipleSensorLogger を動作させるためには、設定ファイルとロ�
    　　 及びLogFilePathの文字数制限オーバー（256文字以上）のみ検出します。
 
     　　　LogFileNameが文字数制限オーバーの場合、以下のエラーコードが表示されます。
-      　　　　 「Error : File name (&quot;\&lt;LogFileName\&gt;&quot;) size over (\&lt;LogFileNameStringSize\&gt;/65)」
+      　　　　 「Error : File name ("\&lt;LogFileName\>") size over (\&lt;LogFileNameStringSize\>/65)」
 
     　　　LogFilePathが文字数制限オーバーの場合、以下のエラーコードが表示されます。
-       　　　　「Error : Path name (&quot;\&lt;LogFilePath\&gt;&quot;) size over (\&lt;LogFilePathStringSize\&gt;/256)」
+       　　　　「Error : Path name ("\&lt;LogFilePath\>") size over (\&lt;LogFilePathStringSize\>/256)」
 
 ### 3-1-5. 設定ファイル記述のワーニング
 
@@ -534,7 +534,7 @@ MultipleSensorLogger を動作させるためには、設定ファイルとロ�
 センサー計測値の書き込み先ログファイルは、設定ファイルのLogFilePathで指定したディレクトリに
 LogFileNameとシステム時刻を付加したファイル名にてmicはwav形式、それ以外はcsv形式で生成します。
 
-以下のLogFileNameとシステム時刻の例では、ログファイル名は &quot;Temporary-20190801\_120000.csv&quot; となります。
+以下のLogFileNameとシステム時刻の例では、ログファイル名は "Temporary-20190801\_120000.csv" となります。
 
 - LogFileName　　　　 ：Temporary
 - ログファイル生成時刻 ：2019 / 8 / 1 12:00:00
@@ -630,7 +630,7 @@ USBストレージとしてアクセスできるようにする機能です。
 Spresense Cubeのカメラ横ボタンを押しながら電源投入、またはリセットすることによって、
 USB MSCモードで起動します。
 
-USBストレージとしてアクセスできるディレクトリは&quot;/mnt/emmc&quot;配下です。
+USBストレージとしてアクセスできるディレクトリは"/mnt/emmc"配下です。
 
 USB MSCモードで起動すると、3 秒間隔で赤色LEDが 2 回点滅します。
 
@@ -648,7 +648,7 @@ MultipleSensorLoggerは以下のコマンドを実装しています。
 
 コマンドプロンプトで以下のように実行してください。
 
-\&gt; sensor start
+\> sensor start
 
 正常に終了したときのみ、以下のログが出力されます。
 
@@ -662,7 +662,7 @@ Sensing start...
 
 コマンドプロンプトで以下のように実行してください。
 
-\&gt; sensor stop
+\> sensor stop
 
 異常終了した時はエラーログが出力されます。
 
@@ -672,11 +672,11 @@ Sensing start...
 
 コマンドプロンプトで以下のように実行してください。
 
-\&gt; show start time
+\> show start time
 
 センサーの計測を開始した時刻は以下のように表示します。
 
-Sensing Start Time : &quot;[Month] [Day] [Hours]:[Minutes]:[Seconds] [Year]&quot;
+Sensing Start Time : "[Month] [Day] [Hours]:[Minutes]:[Seconds] [Year]"
 
 ## 10-4. show elapsed time
 
@@ -684,11 +684,11 @@ Sensing Start Time : &quot;[Month] [Day] [Hours]:[Minutes]:[Seconds] [Year]&quot
 
 コマンドプロンプトで以下のように実行してください。
 
-\&gt; show elapsed time
+\> show elapsed time
 
 センサーの計測開始からの経過時間を以下のように表示します。
 
-&quot;Elapsed Time&quot; : &quot;[Hours]h [Minutes]m [Seconds]s&quot;
+"Elapsed Time" : "[Hours]h [Minutes]m [Seconds]s"
 
 ## 10-5. show config
 
@@ -696,31 +696,31 @@ Sensing Start Time : &quot;[Month] [Day] [Hours]:[Minutes]:[Seconds] [Year]&quot
 
 コマンドプロンプトで以下のように実行してください。
 
-\&gt; show config
+\> show config
 
 各センサーの設定は以下のように表示します。
 
- &quot;[sensor1 name]&quot;: &quot;frequency&quot;=[sensor1 freuency] Hz
+ "[sensor1 name]": "frequency"=[sensor1 freuency] Hz
 
-               : &quot;watermark&quot;=[sensor1 watermark]
+               : "watermark"=[sensor1 watermark]
 
-               : &quot;logfilename&quot;=&quot;[sensor1 logfilename]&quot;
+               : "logfilename"="[sensor1 logfilename]"
 
- &quot;[sensor2 name]&quot;: &quot;frequency&quot;=[sensor2 freuency] Hz
+ "[sensor2 name]": "frequency"=[sensor2 freuency] Hz
 
-               : &quot;watermark&quot;=[sensor2 watermark]
+               : "watermark"=[sensor2 watermark]
 
-               : &quot;logfilename&quot;=&quot;[sensor2 logfilename]&quot;
+               : "logfilename"="[sensor2 logfilename]"
 
                      ~~~~~~
 
- &quot;[sensorX name]&quot;: &quot;frequency&quot;=[sensorX freuency] Hz
+ "[sensorX name]": "frequency"=[sensorX freuency] Hz
 
-               : &quot;watermark&quot;=[sensorX watermark]
+               : "watermark"=[sensorX watermark]
 
-               : &quot;logfilename&quot;=&quot;[sensorX logfilename]&quot;
+               : "logfilename"="[sensorX logfilename]"
 
-  &quot;LogFilePath&quot;: = &quot;[sensors log file container path]&quot;
+  "LogFilePath": = "[sensors log file container path]"
 
 ## 10-6. show info
 
@@ -728,51 +728,51 @@ Sensing Start Time : &quot;[Month] [Day] [Hours]:[Minutes]:[Seconds] [Year]&quot
 
 コマンドプロンプトで以下のように実行してください。
 
-\&gt; show info
+\> show info
 
 アプリケーションの現在の情報は以下のように表示します。
 
-&quot;[sensor1 name] &quot;: &quot;frequency&quot;=[sensor1 freuency] Hz
+"[sensor1 name] ": "frequency"=[sensor1 freuency] Hz
 
-  　　　　　　　　: &quot;watermark&quot;=[sensor1 watermark]
+  　　　　　　　　: "watermark"=[sensor1 watermark]
 
- 　　　　　　　　 : &quot;logfilename&quot;=&quot;[sensor1 logfilename]&quot;
+ 　　　　　　　　 : "logfilename"="[sensor1 logfilename]"
 
- 　　　　　　　　 : &quot;CurrentLogFileStartDate&quot;=&quot;[Month] [Day] [Hours]:[Minutes]:[Seconds] [Year]&quot;
+ 　　　　　　　　 : "CurrentLogFileStartDate"="[Month] [Day] [Hours]:[Minutes]:[Seconds] [Year]"
 
-&quot;[sensor2 name] &quot;: &quot;frequency&quot;=[sensor2 freuency] Hz
+"[sensor2 name] ": "frequency"=[sensor2 freuency] Hz
 
-    　　　　　　　: &quot;watermark&quot;=[sensor2 watermark]
+    　　　　　　　: "watermark"=[sensor2 watermark]
 
-  　　　　　　　　: &quot;logfilename&quot;=&quot;[sensor2 logfilename]&quot;
+  　　　　　　　　: "logfilename"="[sensor2 logfilename]"
 
- 　　　　　　　　 : &quot;CurrentLogFileStartDate&quot;=&quot;[Month] [Day] [Hours]:[Minutes]:[Seconds] [Year]&quot;
+ 　　　　　　　　 : "CurrentLogFileStartDate"="[Month] [Day] [Hours]:[Minutes]:[Seconds] [Year]"
 
                    ~~~~~~
 
-&quot;[sensorX name] &quot;: &quot;frequency&quot;=[sensorX freuency] Hz
+"[sensorX name] ": "frequency"=[sensorX freuency] Hz
 
-  　　　　　　　　: &quot;watermark&quot;=[sensorX watermark]
+  　　　　　　　　: "watermark"=[sensorX watermark]
 
-  　　　　　　　　: &quot;logfilename&quot;=&quot;[sensorX logfilename]&quot;
+  　　　　　　　　: "logfilename"="[sensorX logfilename]"
 
-  　　　　　　　　: &quot;CurrentLogFileStartDate&quot;=&quot;[Month] [Day] [Hours]:[Minutes]:[Seconds] [Year]&quot;
+  　　　　　　　　: "CurrentLogFileStartDate"="[Month] [Day] [Hours]:[Minutes]:[Seconds] [Year]"
 
-&quot;Common         &quot;: &quot;SensorStartTime&quot;=&quot;[sensors log file container path]&quot;
+"Common         ": "SensorStartTime"="[sensors log file container path]"
 
-  　　　　　　　　: &quot;SensorElapsedTime&quot;=&quot;[sensors log file container path]&quot;
+  　　　　　　　　: "SensorElapsedTime"="[sensors log file container path]"
 
-  　　　　　　　　: &quot;LogFilePath&quot;=&quot;[sensors log file container path]&quot;
+  　　　　　　　　: "LogFilePath"="[sensors log file container path]"
 
 ## 10-7. fw update
 
 本コマンドはアプリケーションをアップデートして再起動します。
 
-コマンド実行前に&quot;.spk&quot;形式のファイルをストレージ内に格納してください。（以降ファイル名を含む格納先パスを [fw file path] と表記します）
+コマンド実行前に".spk"形式のファイルをストレージ内に格納してください。（以降ファイル名を含む格納先パスを [fw file path] と表記します）
 
 コマンドプロンプトで以下のように実行してください。
 
-\&gt; fw update -f [fw file path]
+\> fw update -f [fw file path]
 
 本コマンドが正常終了すると、自動的にSpresense Cubeが再起動します。
 
@@ -784,7 +784,7 @@ Sensing Start Time : &quot;[Month] [Day] [Hours]:[Minutes]:[Seconds] [Year]&quot
 
 コマンドプロンプトで以下のように実行してください。
 
-\&gt; config update [sensor name] [config name] [value]
+\> config update [sensor name] [config name] [value]
 
 sensor name, config name, valueについては「3-1-1. 設定ファイル記述」を参照してください。
 
@@ -792,7 +792,7 @@ sensor name, config name, valueについては「3-1-1. 設定ファイル記述
 
  衛星システムを削除したい場合は、コマンドプロンプトで以下のように実行してください。
 
-\&gt; config update gnss SatelliteSystems [value] -d
+\> config update gnss SatelliteSystems [value] -d
 
 ただし、SatelliteSystemsに衛星システムが 1 つしか無い場合は削除できません。
 
@@ -808,7 +808,7 @@ sensor name, config name, valueについては「3-1-1. 設定ファイル記述
 
 コマンドプロンプトで以下のように実行してください。
 
-\&gt; config file update [json file path]
+\> config file update [json file path]
 
 本コマンド正常終了時のログ出力はなく、異常終了時にエラーログが出力されます。
 
@@ -818,13 +818,13 @@ sensor name, config name, valueについては「3-1-1. 設定ファイル記述
 
 コマンドプロンプトで以下のように実行してください。
 
-\&gt; show log list
+\> show log list
 
 また、特定のセンサーのログファイルのみ表示させることもできます。
 
 この場合、「3-1-2. 設定ファイルパラメータの設定範囲」に記載している Nameパラメータでセンサーを指定することができます。
 
-\&gt; show log list [Name]
+\> show log list [Name]
 
 ## 10-11. date
 
@@ -832,11 +832,11 @@ sensor name, config name, valueについては「3-1-1. 設定ファイル記述
 
 時刻を表示させる場合、コマンドプロンプトで以下のように実行してください。
 
-\&gt; date
+\> date
 
 時刻は以下のように表示されます。
 
-&quot;MMM DD hh:mm:ss YYYY
+"MMM DD hh:mm:ss YYYY
 
 - MMM ：月（英語 3文字の省略系　例：Jan）
 - DD　 ：日（1～31）
@@ -847,7 +847,7 @@ sensor name, config name, valueについては「3-1-1. 設定ファイル記述
 
 時刻を設定する場合、コマンドプロンプトで以下のように実行してください。
 
-\&gt; date -s YYYY/MM/DD hh:mm:ss
+\> date -s YYYY/MM/DD hh:mm:ss
 
 - YYYY ：年（西暦1900 ~ 2100）
 - MM　 ：月（1～12）
@@ -862,4 +862,4 @@ sensor name, config name, valueについては「3-1-1. 設定ファイル記述
 
 コマンドプロンプトで以下のように実行してください。
 
-\&gt; help
+\> help
